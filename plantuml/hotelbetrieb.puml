@@ -1,0 +1,52 @@
+@startuml
+left to right direction
+
+class Zimmer {
+    - nummer: int
+    - personen: int
+}
+
+class Kategorie {
+    - id: int
+    - bezeichnung: string
+}
+
+class Mitarbeiter {
+    - svnr: int
+    - name: string
+    - adresse: string
+}
+
+class Betreuer {
+    - fach: string
+}
+
+class PutzZimmer {
+}
+
+class Gast {
+    - kundennr: int
+    - name: string
+    - adresse: string
+}
+
+class Buchung {
+    - von: LocalDate
+    - bis: LocalDate
+}
+
+class Leistungspaket {
+    - bezeichnung: string
+    - preis: double
+}
+
+Zimmer "*" --> "1" Kategorie
+Mitarbeiter "*" -- "*" Betreuer
+Mitarbeiter "*" -- "*" PutzZimmer
+PutzZimmer "*" --> "1" Zimmer
+Zimmer "1" <-- "*" Buchung
+Buchung "*" --> "1" Gast
+Betreuer "1..*" -- "*" Leistungspaket
+Leistungspaket "*" --> "1" Buchung
+
+@enduml

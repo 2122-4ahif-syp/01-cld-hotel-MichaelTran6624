@@ -1,0 +1,64 @@
+@startuml
+left to right direction
+
+class Kino{
+    - name: string
+    - adresse: string
+}
+
+class Saal {
+    - id: int
+}
+
+class Sitz {
+    - platz: int
+    - reihe: int
+}
+
+class Film {
+    - titel: string
+    - herstelljahr: LocalDate
+    - land: string
+    - sprache: string
+    - dauer: double
+    - verleih: string
+}
+
+class Vorstellung {
+    - datum: LocalDate
+    - beginn: LocalDateTime
+}
+
+class Ticket {
+    - preis: double
+}
+
+class Person {
+    - nachname: string
+    - vorname: string
+    - nationalitaet: string
+    - gebdatum: LocalDate
+    - toddatum: LocalDate
+}
+
+class FilmPerson {
+}
+
+class Genre {
+}
+
+class Rolle {
+}
+
+Kino "1" <-- "*" Saal
+Saal "1" <-- "*" Sitz
+Saal "1" <-- "*" Vorstellung
+Vorstellung "*" <-- "1" Film
+Sitz "1" <-- "*" Ticket
+Vorstellung "1" <-- "*" Ticket
+Film "*" --> "1" Genre
+Film "*" --> "1" FilmPerson
+FilmPerson "1" <-- "*" Person
+Person "*" --> "1" Rolle
+
+@enduml
