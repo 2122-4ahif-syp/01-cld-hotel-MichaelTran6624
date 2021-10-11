@@ -1,4 +1,4 @@
-= 01-cld-hotel
+= 01-cld-hotel-MichaelTran6624
 Michael Tran
 1.0.0, 2021-10-11:
 ifndef::imagesdir[:imagesdir: images]
@@ -18,11 +18,13 @@ ifdef::backend-html5[]
 
 
 === Hotelbetrieb
+[plantuml]
 ----
 include::plantuml/hotelbetrieb.puml[]
 ----
 
 === Kinokette
+[plantuml]
 ----
 include::plantuml/kinokette.puml[]
 ----
